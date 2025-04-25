@@ -3,143 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Учебный портал</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Общий стиль для сайта */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-
-        /* Стиль для бокового меню */
-        #sideMenu {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            transition: 0.3s;
-            padding-top: 60px;
-        }
-
-        /* Кнопки в боковом меню */
-        #sideMenu a {
-            padding: 8px 16px;
-            text-decoration: none;
-            font-size: 18px;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
-
-        #sideMenu a:hover {
-            background-color: #575757;
-        }
-
-        /* Стиль для кнопки меню */
-        #menuBtn {
-            font-size: 30px;
-            color: white;
-            background-color: #333;
-            padding: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-
-        #menuBtn:hover {
-            background-color: #575757;
-        }
-
-        /* Контент сайта */
-        .content {
-            padding: 20px;
-            margin-left: 270px;
-        }
-
-        /* Стили для скрытых секций */
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Кнопка для открытия меню -->
-    <div id="menuBtn" onclick="toggleMenu()">☰ Меню</div>
-
-    <!-- Боковое меню -->
-    <div id="sideMenu">
-        <a href="javascript:void(0)" onclick="showSection('contacts')">Главная</a>
-        <a href="javascript:void(0)" onclick="showSection('product')">Продукт</a>
-        <a href="javascript:void(0)" onclick="showSection('scripts')">Скрипт</a>
-    </div>
-
-    <!-- Контент -->
-    <div class="content">
-        <div id="contacts" class="section">
-            <h2>Контактная информация</h2>
-            <p><strong>Телефон:</strong> +998 71 200 00 00</p>
-            <p><strong>Email:</strong> info@bank.com</p>
-            <p><strong>Адрес:</strong> ул. Академика 7, Ташкент, Узбекистан</p>
-        </div>
-
-        <div id="product" class="section">
-            <h2>Продукты банка</h2>
-            <h3>Кредитные карты</h3>
-            <p>Мы предлагаем широкий выбор кредитных карт, включая карты с рассрочкой и грейс-периодом. Условия могут варьироваться в зависимости от типа карты.</p>
-            <h3>Вклады</h3>
-            <p>Наши вклады включают различные продукты с разными сроками и процентными ставками, например, InFin-Premium и InFin-Sevimli.</p>
-        </div>
-
-        <div id="scripts" class="section">
-            <h2>Скрипты для контакт-центра</h2>
-            <h3>Скрипт 1.1: Сотрудник совершает звонок согласно списку</h3>
-            <p><strong>Русский:</strong> "Доброе утро/день/вечер, (имя клиента). Меня зовут (имя сотрудника). Я звоню Вам из контакт-центра ИнфинБанка. Вам удобно сейчас разговаривать?"</p>
-            <p><strong>Узбекский:</strong> "Xayrli tong/kун/kech, (mijozning ismi). Mening ismim (xodimning ismi). Men InfinBankning kontaktsentridan sizga qo'ng'iroq qilmoqdaman. Hozir suhbatlashish uchun qulaymi?"</p>
-            <h3>Скрипт 1.7: Клиент хочет получить информацию о своем счете</h3>
-            <p><strong>Русский:</strong> "(Имя клиента), для этого я должен(а) задать Вам пару вопросов для проведения процедуры аутентификации (далее проводится процедура аутентификации согласно инструкции)."</p>
-            <p><strong>Узбекский:</strong> "(Mijozning ismi), buni amalga oshirish uchun men sizga autentifikatsiya protsedurasini o'tkazish uchun bir necha savollar berishim kerak (keyinchalik autentifikatsiya protsedurasi ko'rsatmalarga binoan amalga oshiriladi)."</p>
-            <h3>Скрипт 1.8: Клиент хочет получить услуги банка (блокировка карты/сброс пин-кода)</h3>
-            <p><strong>Русский:</strong> "(Имя клиента), для этого я должен(а) задать Вам пару вопросов для проведения процедуры аутентификации (далее проводится процедура аутентификации согласно инструкции)."</p>
-            <p><strong>Узбекский:</strong> "(Mijozning ismi), buni amalga oshirish uchun men sizga autentifikatsiya protsedurasini o'tkazish uchun bir necha savollar berishim kerak (keyinchalik autentifikatsiya protsedurasi ko'rsatmalarga binoan amalga oshiriladi)."</p>
-        </div>
-    </div>
-
+    <title>Сайт с Продуктами и Скриптами</title>
+    <link rel="stylesheet" href="style.css">
     <script>
-        // Функция для открытия/закрытия меню
-        function toggleMenu() {
-            var menu = document.getElementById('sideMenu');
-            if (menu.style.left === '-250px') {
-                menu.style.left = '0';
-            } else {
-                menu.style.left = '-250px';
-            }
+        function showProductInfo(product) {
+            let productInfo = {
+                "InFin-Premium": "Информация о продукте InFin-Premium...",
+                "Infin-Nastarin": "Информация о продукте Infin-Nastarin...",
+                "InFin-Ishonchli": "Информация о продукте InFin-Ishonchli...",
+                "InFinga-15-yil": "Информация о продукте InFinga 15 yil...",
+                "Infin-Sevimli": "Информация о продукте Infin Sevimli...",
+                "InFin-Barqaror": "Информация о продукте InFin Barqaror..."
+            };
+            document.getElementById('productDetails').innerText = productInfo[product] || "Информация о продукте не найдена.";
         }
 
-        // Функция для отображения секции по клику
-        function showSection(sectionId) {
-            var sections = document.querySelectorAll('.section');
-            sections.forEach(function(section) {
-                section.classList.remove('active');
-            });
-            var section = document.getElementById(sectionId);
-            section.classList.add('active');
+        function showScripts(scriptType) {
+            let scripts = {
+                "greeting": "Скрипт приветствия...",
+                "objection": "Скрипт для возражений...",
+                "dialog": "Диалог с клиентом..."
+            };
+            document.getElementById('scriptDetails').innerText = scripts[scriptType] || "Скрипт не найден.";
         }
     </script>
+</head>
+<body>
+    <div class="sidebar">
+        <button onclick="document.getElementById('productSection').style.display = 'block';">Продукт</button>
+        <button onclick="document.getElementById('scriptSection').style.display = 'block';">Скрипты</button>
+    </div>
+
+    <div id="productSection" style="display:none;">
+        <h3>Выберите продукт:</h3>
+        <button onclick="showProductInfo('InFin-Premium')">InFin-Premium</button>
+        <button onclick="showProductInfo('Infin-Nastarin')">Infin-Nastarin</button>
+        <button onclick="showProductInfo('InFin-Ishonchli')">InFin-Ishonchli</button>
+        <button onclick="showProductInfo('InFinga-15-yil')">InFinga-15-yil</button>
+        <button onclick="showProductInfo('Infin-Sevimli')">Infin-Sevimli</button>
+        <button onclick="showProductInfo('InFin-Barqaror')">InFin-Barqaror</button>
+        <div id="productDetails" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+    </div>
+
+    <div id="scriptSection" style="display:none;">
+        <h3>Выберите скрипт:</h3>
+        <button onclick="showScripts('greeting')">Приветствие</button>
+        <button onclick="showScripts('objection')">Возражение</button>
+        <button onclick="showScripts('dialog')">Диалог с клиентом</button>
+        <div id="scriptDetails" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+    </div>
 </body>
 </html>
-
-
-
-
