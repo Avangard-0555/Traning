@@ -1,1 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
 
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #333;
+    color: white;
+    text-align: left;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.sidebar button:hover {
+    background-color: #575757;
+}
+
+#productSection, #scriptSection {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+#productDetails, #scriptDetails {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
