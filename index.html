@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8"> <!-- Кодировка -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Адаптивность -->
-  <title>InfinBank – Вклады и карты</title> <!-- Заголовок окна -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfinBank – Вклады и Карты</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #eef2f5;
       margin: 0;
       padding: 20px;
     }
@@ -15,6 +15,8 @@
     h1 {
       text-align: center;
       color: #003366;
+      font-size: 28px;
+      margin-bottom: 40px;
     }
 
     .product-container {
@@ -26,51 +28,67 @@
 
     .product-card {
       background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      width: 320px;
-      padding: 20px;
-      position: relative;
-      transition: transform 0.2s ease-in-out;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      width: 340px;
+      padding: 25px;
+      transition: transform 0.3s ease;
     }
 
     .product-card:hover {
-      transform: scale(1.02);
+      transform: translateY(-5px);
     }
 
     .product-title {
-      font-size: 18px;
-      color: #0057b8;
-      font-weight: bold;
+      font-size: 20px;
+      color: #004c97;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
 
     .product-details {
       display: none;
-      margin-top: 10px;
-      font-size: 14px;
+      margin-top: 12px;
+      font-size: 15px;
       color: #333;
+      line-height: 1.5;
     }
 
     .toggle-button {
-      margin-top: 15px;
-      background-color: #0057b8;
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(90deg, #0057b8, #003d7c);
       color: #fff;
       border: none;
-      border-radius: 5px;
-      padding: 8px 12px;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 500;
       cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 87, 184, 0.3);
+    }
+
+    .toggle-button:hover {
+      background: linear-gradient(90deg, #004c97, #00325d);
+    }
+
+    .toggle-button svg {
+      width: 16px;
+      height: 16px;
+      fill: white;
     }
   </style>
 </head>
 <body>
 
-<h1>💰 Продукты InfinBank</h1> <!-- Заголовок страницы -->
+<h1>💰 Продукты InfinBank</h1>
 
-<!-- Контейнер для всех продуктов -->
 <div class="product-container">
-
   <!-- ВКЛАДЫ -->
-
   <div class="product-card">
     <div class="product-title">InFin-Premium</div>
     <div class="product-details">
@@ -84,7 +102,10 @@
       Досрочное закрытие: Да<br>
       Доп. взнос: Да
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+    <button class="toggle-button" onclick="toggleDetails(this)">
+      Подробнее
+      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
+    </button>
   </div>
 
   <div class="product-card">
@@ -99,7 +120,10 @@
       Досрочное закрытие: Да<br>
       Доп. взнос: Да
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+    <button class="toggle-button" onclick="toggleDetails(this)">
+      Подробнее
+      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
+    </button>
   </div>
 
   <div class="product-card">
@@ -114,7 +138,10 @@
       Досрочное закрытие: Да<br>
       Доп. взнос: Да
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+    <button class="toggle-button" onclick="toggleDetails(this)">
+      Подробнее
+      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
+    </button>
   </div>
 
   <div class="product-card">
@@ -129,7 +156,10 @@
       Досрочное закрытие: Да<br>
       Доп. взнос: Да
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+    <button class="toggle-button" onclick="toggleDetails(this)">
+      Подробнее
+      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
+    </button>
   </div>
 
   <div class="product-card">
@@ -144,7 +174,10 @@
       Досрочное закрытие: Да<br>
       Доп. взнос: Да
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+    <button class="toggle-button" onclick="toggleDetails(this)">
+      Подробнее
+      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
+    </button>
   </div>
 
   <div class="product-card">
@@ -159,7 +192,10 @@
       Досрочное закрытие: Да<br>
       Доп. взнос: Нет
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+    <button class="toggle-button" onclick="toggleDetails(this)">
+      Подробнее
+      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
+    </button>
   </div>
 
   <!-- КАРТЫ -->
@@ -170,50 +206,14 @@
       Тип: карта рассрочки<br>
       Максимальный лимит: до 100 000 000 UZS<br>
       Штраф за просрочку: отсутствует<br>
-      Где использовать: список партнёров банка<br>
+      Где использовать: список партнёров Банка<br>
       Период погашения: 12 месяцев<br>
-      Срок действия: 5 лет<br>
-      Время рассмотрения: от 5 минут<br>
-      Доставка: бесплатно<br>
-      Выпуск: бесплатно<br>
+      Срок действия карты: 5 лет<br>
+      Время рассмотрения заявки: от 5 минут<br>
+      Доставка карты: бесплатно<br>
+      Выпуск карты: бесплатно<br>
       Наценка: треть от суммы покупки
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
-  </div>
-
-  <div class="product-card">
-    <div class="product-title">Карта №2 — Кредитная</div>
-    <div class="product-details">
-      Тип: кредитная карта с возобновляемым лимитом<br>
-      Лимит: до 50 000 000 UZS<br>
-      Беспроцентный период: до 50 дней<br>
-      Ставка: от 0,07% в день<br>
-      Срок действия: 5 лет<br>
-      Время рассмотрения: от 5 минут<br>
-      Доставка: бесплатно<br>
-      Выпуск: 50 000 UZS
-    </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
-  </div>
-
-</div>
-
-<!-- Скрипт: раскрытие/сокрытие деталей -->
-<script>
-  function toggleDetails(button) {
-    const details = button.previousElementSibling; // Получаем блок перед кнопкой
-    const isVisible = details.style.display === "block"; // Проверка видимости
-    details.style.display = isVisible ? "none" : "block"; // Переключаем
-    button.textContent = isVisible ? "Подробнее" : "Скрыть"; // Меняем текст
-  }
-</script>
-
-<!-- Скрипт автообновления страницы (каждые 15 сек, можно изменить) -->
-<script>
-  setInterval(() => {
-    location.reload(); // Обновляем страницу
-  }, 15000); // Время в миллисекундах (15 сек)
-</script>
-
-</body>
-</html>
+    <button class="toggle-button" onclick="toggleDetails(this)">
+      Подробнее
+      <svg viewBox="0
