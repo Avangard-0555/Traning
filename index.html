@@ -1,80 +1,144 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <!-- Устанавливаем кодировку и заголовок страницы -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ИнфинБанк - Контактная информация и Скрипты</title>
-    <!-- Подключаем стили CSS -->
-    <link rel="stylesheet" href="style.css">
+    <title>Учебный портал</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Общий стиль для сайта */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Стиль для бокового меню */
+        #sideMenu {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+
+        /* Кнопки в боковом меню */
+        #sideMenu a {
+            padding: 8px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #sideMenu a:hover {
+            background-color: #575757;
+        }
+
+        /* Стиль для кнопки меню */
+        #menuBtn {
+            font-size: 30px;
+            color: white;
+            background-color: #333;
+            padding: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        #menuBtn:hover {
+            background-color: #575757;
+        }
+
+        /* Контент сайта */
+        .content {
+            padding: 20px;
+            margin-left: 270px;
+        }
+
+        /* Стили для скрытых секций */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <!-- Основной контейнер для контента -->
-    <div class="container">
-        <h1>Добро пожаловать на портал ИнфинБанка</h1>
-        
-        <!-- Раздел с кнопками для навигации -->
-        <nav>
-            <button onclick="showSection('contacts')">Контактная информация</button>
-            <button onclick="showSection('scripts')">Скрипты</button>
-            <button onclick="showSection('offer')">Публичная оферта</button>
-        </nav>
 
-        <!-- Контент для контактной информации -->
+    <!-- Кнопка для открытия меню -->
+    <div id="menuBtn" onclick="toggleMenu()">☰ Меню</div>
+
+    <!-- Боковое меню -->
+    <div id="sideMenu">
+        <a href="javascript:void(0)" onclick="showSection('contacts')">Главная</a>
+        <a href="javascript:void(0)" onclick="showSection('product')">Продукт</a>
+        <a href="javascript:void(0)" onclick="showSection('scripts')">Скрипт</a>
+    </div>
+
+    <!-- Контент -->
+    <div class="content">
         <div id="contacts" class="section">
             <h2>Контактная информация</h2>
-            <p>Телефон колл-центра: <strong>+998 (71) 202 50 60</strong></p>
-            <p>Служба поддержки клиентов: <strong>1214</strong></p>
-            <p>Короткий номер: <strong>info@infinbank.com</strong></p>
+            <p><strong>Телефон:</strong> +998 71 200 00 00</p>
+            <p><strong>Email:</strong> info@bank.com</p>
+            <p><strong>Адрес:</strong> ул. Академика 7, Ташкент, Узбекистан</p>
         </div>
 
-        <!-- Контент для скриптов -->
-        <div id="scripts" class="section" style="display: none;">
-            <h2>Скрипты для сотрудников</h2>
-            <pre>
-1. 1.1. Сотрудник совершает звонок:
-Русский: 
-"Доброе утро/день/вечер, (имя клиента). Меня зовут (имя сотрудника). Я звоню Вам из контакт-центра ИнфинБанка. Вам удобно сейчас разговаривать?"
-
-Узбекский:
-"Xayrli tong/kун/kech, (mijozning ismi). Mening ismim (xodimning ismi). Men InfinBankning kontaktsentridan sizga qo'ng'iroq qilmoqdaman. Hozir suhbatlashish uchun qulaymi?"
-
-Каракалпакский:
-"Қайырлы таң/күн/кеш, (клиенттің аты). Менің атым (қызметкердің аты). Мен ИнфинБанктің байланыс орталығынан сізге қоңырау шалып жатырмын. Қазір сөйлесуге ыңғайлы ма?"
-
-            </pre>
+        <div id="product" class="section">
+            <h2>Продукты банка</h2>
+            <h3>Кредитные карты</h3>
+            <p>Мы предлагаем широкий выбор кредитных карт, включая карты с рассрочкой и грейс-периодом. Условия могут варьироваться в зависимости от типа карты.</p>
+            <h3>Вклады</h3>
+            <p>Наши вклады включают различные продукты с разными сроками и процентными ставками, например, InFin-Premium и InFin-Sevimli.</p>
         </div>
 
-        <!-- Контент для публичной оферты -->
-        <div id="offer" class="section" style="display: none;">
-            <h2>Публичная оферта</h2>
-            <p>Здесь будет размещена публичная оферта. Мы загрузим её позднее.</p>
+        <div id="scripts" class="section">
+            <h2>Скрипты для контакт-центра</h2>
+            <h3>Скрипт 1.1: Сотрудник совершает звонок согласно списку</h3>
+            <p><strong>Русский:</strong> "Доброе утро/день/вечер, (имя клиента). Меня зовут (имя сотрудника). Я звоню Вам из контакт-центра ИнфинБанка. Вам удобно сейчас разговаривать?"</p>
+            <p><strong>Узбекский:</strong> "Xayrli tong/kун/kech, (mijozning ismi). Mening ismim (xodimning ismi). Men InfinBankning kontaktsentridan sizga qo'ng'iroq qilmoqdaman. Hozir suhbatlashish uchun qulaymi?"</p>
+            <h3>Скрипт 1.7: Клиент хочет получить информацию о своем счете</h3>
+            <p><strong>Русский:</strong> "(Имя клиента), для этого я должен(а) задать Вам пару вопросов для проведения процедуры аутентификации (далее проводится процедура аутентификации согласно инструкции)."</p>
+            <p><strong>Узбекский:</strong> "(Mijozning ismi), buni amalga oshirish uchun men sizga autentifikatsiya protsedurasini o'tkazish uchun bir necha savollar berishim kerak (keyinchalik autentifikatsiya protsedurasi ko'rsatmalarga binoan amalga oshiriladi)."</p>
+            <h3>Скрипт 1.8: Клиент хочет получить услуги банка (блокировка карты/сброс пин-кода)</h3>
+            <p><strong>Русский:</strong> "(Имя клиента), для этого я должен(а) задать Вам пару вопросов для проведения процедуры аутентификации (далее проводится процедура аутентификации согласно инструкции)."</p>
+            <p><strong>Узбекский:</strong> "(Mijozning ismi), buni amalga oshirish uchun men sizga autentifikatsiya protsedurasini o'tkazish uchun bir necha savollar berishim kerak (keyinchalik autentifikatsiya protsedurasi ko'rsatmalarga binoan amalga oshiriladi)."</p>
         </div>
     </div>
 
-    <!-- Скрипт для переключения между разделами -->
     <script>
-        // Функция для отображения нужного раздела
-        function showSection(sectionId) {
-            // Скрыть все секции
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => section.style.display = 'none');
+        // Функция для открытия/закрытия меню
+        function toggleMenu() {
+            var menu = document.getElementById('sideMenu');
+            if (menu.style.left === '-250px') {
+                menu.style.left = '0';
+            } else {
+                menu.style.left = '-250px';
+            }
+        }
 
-            // Показать выбранный раздел
-            document.getElementById(sectionId).style.display = 'block';
+        // Функция для отображения секции по клику
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            var section = document.getElementById(sectionId);
+            section.classList.add('active');
         }
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
