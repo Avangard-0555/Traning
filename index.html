@@ -1,76 +1,79 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8"> <!-- Установка кодировки страницы -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Адаптация под мобильные -->
-  <title>Вклады и карты InfinBank</title> <!-- Заголовок страницы -->
+  <meta charset="UTF-8"> <!-- Кодировка -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Адаптивность -->
+  <title>InfinBank – Вклады и карты</title> <!-- Заголовок окна -->
   <style>
-    /* Основной стиль для body */
     body {
-      font-family: Arial, sans-serif; /* Шрифт */
-      background-color: #f2f2f2; /* Цвет фона */
-      margin: 0; /* Убираем отступы */
-      padding: 20px; /* Отступ вокруг контента */
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
     }
 
-    /* Контейнер для карточек */
+    h1 {
+      text-align: center;
+      color: #003366;
+    }
+
     .product-container {
-      display: flex; /* Используем flexbox */
-      flex-wrap: wrap; /* Перенос строк при нехватке места */
-      gap: 20px; /* Отступ между карточками */
-      justify-content: center; /* Центрируем карточки */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
 
-    /* Стиль карточки */
     .product-card {
-      background-color: white; /* Белый фон */
-      border-radius: 10px; /* Скругление углов */
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Тень */
-      padding: 20px; /* Внутренний отступ */
-      width: 300px; /* Ширина карточки */
-      transition: 0.3s; /* Анимация наведения */
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 320px;
+      padding: 20px;
+      position: relative;
+      transition: transform 0.2s ease-in-out;
     }
 
-    /* Ховер эффект */
     .product-card:hover {
-      transform: scale(1.03); /* Увеличение при наведении */
+      transform: scale(1.02);
     }
 
-    /* Заголовок продукта */
     .product-title {
-      font-size: 1.2em; /* Размер шрифта */
-      margin-bottom: 10px; /* Отступ снизу */
-      color: #0057b8; /* Цвет бренда */
+      font-size: 18px;
+      color: #0057b8;
+      font-weight: bold;
     }
 
-    /* Скрытый блок с деталями */
     .product-details {
-      display: none; /* Изначально скрыт */
-      font-size: 0.95em; /* Размер текста */
+      display: none;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
     }
 
-    /* Кнопка раскрытия */
     .toggle-button {
-      margin-top: 10px; /* Отступ сверху */
-      background-color: #0057b8; /* Синий фон */
-      color: white; /* Белый текст */
-      padding: 8px 12px; /* Внутренние отступы */
-      border: none; /* Без рамки */
-      border-radius: 5px; /* Скругление */
-      cursor: pointer; /* Курсор при наведении */
+      margin-top: 15px;
+      background-color: #0057b8;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 12px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-<h1>💰 Вклады и карты InfinBank</h1> <!-- Заголовок страницы -->
+<h1>💰 Продукты InfinBank</h1> <!-- Заголовок страницы -->
 
-<div class="product-container"> <!-- Контейнер всех карточек -->
+<!-- Контейнер для всех продуктов -->
+<div class="product-container">
 
-  <!-- Пример одной карточки вклада -->
+  <!-- ВКЛАДЫ -->
+
   <div class="product-card">
-    <div class="product-title">InFin-Premium</div> <!-- Название вклада -->
-    <div class="product-details"> <!-- Детали вклада -->
+    <div class="product-title">InFin-Premium</div>
+    <div class="product-details">
       Цель: Преумножение средств<br>
       Срок: 24 месяца<br>
       Доход: 149.82 USD<br>
@@ -81,24 +84,135 @@
       Досрочное закрытие: Да<br>
       Доп. взнос: Да
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button> <!-- Кнопка для раскрытия -->
+    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
   </div>
 
-  <!-- Добавь сюда остальные вклады и карты копипастом -->
-  <!-- Например: Infin Nastarin, InFin Ishonchli и т.д. -->
+  <div class="product-card">
+    <div class="product-title">Infin Nastarin</div>
+    <div class="product-details">
+      Срок: 24 месяца<br>
+      Доход: 439 999.95 UZS<br>
+      Мин. вклад: 1 000 000 UZS<br>
+      Ставка: 22.0%<br>
+      Выплата процентов: ежемесячно<br>
+      Частичное списание: Да<br>
+      Досрочное закрытие: Да<br>
+      Доп. взнос: Да
+    </div>
+    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-title">InFin Ishonchli</div>
+    <div class="product-details">
+      Срок: 24 месяца<br>
+      Доход: 129.95 USD<br>
+      Мин. вклад: 1 000 USD<br>
+      Ставка: 6.5%<br>
+      Выплата процентов: ежемесячно<br>
+      Частичное списание: Да<br>
+      Досрочное закрытие: Да<br>
+      Доп. взнос: Да
+    </div>
+    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-title">InFinga 15 yil</div>
+    <div class="product-details">
+      Срок: 18 месяцев<br>
+      Доход: 41.21 USD<br>
+      Мин. вклад: 500 USD<br>
+      Ставка: 5.5%<br>
+      Выплата процентов: ежемесячно<br>
+      Частичное списание: Да<br>
+      Досрочное закрытие: Да<br>
+      Доп. взнос: Да
+    </div>
+    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-title">Infin Sevimli</div>
+    <div class="product-details">
+      Срок: 24 месяца<br>
+      Доход: 8.88 USD<br>
+      Мин. вклад: 100 USD<br>
+      Ставка: 4.5%<br>
+      Выплата процентов: ежемесячно<br>
+      Частичное списание: Да<br>
+      Досрочное закрытие: Да<br>
+      Доп. взнос: Да
+    </div>
+    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-title">InFin Barqaror</div>
+    <div class="product-details">
+      Срок: 18 месяцев<br>
+      Доход: 44.91 USD<br>
+      Мин. вклад: 500 USD<br>
+      Ставка: 6.0%<br>
+      Выплата процентов: ежемесячно<br>
+      Частичное списание: Нет<br>
+      Досрочное закрытие: Да<br>
+      Доп. взнос: Нет
+    </div>
+    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+  </div>
+
+  <!-- КАРТЫ -->
+
+  <div class="product-card">
+    <div class="product-title">Карта №1 — Рассрочка</div>
+    <div class="product-details">
+      Тип: карта рассрочки<br>
+      Максимальный лимит: до 100 000 000 UZS<br>
+      Штраф за просрочку: отсутствует<br>
+      Где использовать: список партнёров банка<br>
+      Период погашения: 12 месяцев<br>
+      Срок действия: 5 лет<br>
+      Время рассмотрения: от 5 минут<br>
+      Доставка: бесплатно<br>
+      Выпуск: бесплатно<br>
+      Наценка: треть от суммы покупки
+    </div>
+    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+  </div>
+
+  <div class="product-card">
+    <div class="product-title">Карта №2 — Кредитная</div>
+    <div class="product-details">
+      Тип: кредитная карта с возобновляемым лимитом<br>
+      Лимит: до 50 000 000 UZS<br>
+      Беспроцентный период: до 50 дней<br>
+      Ставка: от 0,07% в день<br>
+      Срок действия: 5 лет<br>
+      Время рассмотрения: от 5 минут<br>
+      Доставка: бесплатно<br>
+      Выпуск: 50 000 UZS
+    </div>
+    <button class="toggle-button" onclick="toggleDetails(this)">Подробнее</button>
+  </div>
 
 </div>
 
+<!-- Скрипт: раскрытие/сокрытие деталей -->
 <script>
-  // Функция для показа/скрытия деталей
   function toggleDetails(button) {
-    const details = button.previousElementSibling; // Получаем соседний элемент с деталями
-    const isVisible = details.style.display === "block"; // Проверка: уже открыт?
-
-    // Меняем стиль отображения
-    details.style.display = isVisible ? "none" : "block"; // Скрыть/показать
-    button.textContent = isVisible ? "Подробнее" : "Скрыть"; // Изменение текста кнопки
+    const details = button.previousElementSibling; // Получаем блок перед кнопкой
+    const isVisible = details.style.display === "block"; // Проверка видимости
+    details.style.display = isVisible ? "none" : "block"; // Переключаем
+    button.textContent = isVisible ? "Подробнее" : "Скрыть"; // Меняем текст
   }
+</script>
+
+<!-- Скрипт автообновления страницы (каждые 15 сек, можно изменить) -->
+<script>
+  setInterval(() => {
+    location.reload(); // Обновляем страницу
+  }, 15000); // Время в миллисекундах (15 сек)
 </script>
 
 </body>
