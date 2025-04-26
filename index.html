@@ -3,217 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfinBank – Вклады и Карты</title>
+  <title>Портал InfinBank</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #eef2f5;
       margin: 0;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #003366;
-      font-size: 28px;
-      margin-bottom: 40px;
-    }
-
-    .product-container {
+      font-family: Arial, sans-serif;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
     }
-
-    .product-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      width: 340px;
-      padding: 25px;
-      transition: transform 0.3s ease;
+    nav {
+      width: 200px;
+      background-color: #2c3e50;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      position: fixed;
     }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .product-title {
-      font-size: 20px;
-      color: #004c97;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .product-details {
-      display: none;
-      margin-top: 12px;
-      font-size: 15px;
-      color: #333;
-      line-height: 1.5;
-    }
-
-    .toggle-button {
-      margin-top: 20px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: linear-gradient(90deg, #0057b8, #003d7c);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-size: 14px;
-      font-weight: 500;
+    nav h2 {
+      font-size: 18px;
+      margin: 10px 0;
       cursor: pointer;
-      transition: background 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0, 87, 184, 0.3);
     }
-
-    .toggle-button:hover {
-      background: linear-gradient(90deg, #004c97, #00325d);
+    .submenu {
+      margin-left: 10px;
+      display: none;
+      flex-direction: column;
     }
-
-    .toggle-button svg {
-      width: 16px;
-      height: 16px;
-      fill: white;
+    .submenu.active {
+      display: flex;
+    }
+    nav h2:hover {
+      color: #18bc9c;
+    }
+    main {
+      margin-left: 220px;
+      padding: 20px;
+      flex: 1;
+    }
+    .content-block {
+      margin-bottom: 30px;
+    }
+    h3 {
+      color: #2c3e50;
+    }
+    pre {
+      background: #ecf0f1;
+      padding: 10px;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-
-<h1>💰 Продукты InfinBank</h1>
-
-<div class="product-container">
-  <!-- ВКЛАДЫ -->
-  <div class="product-card">
-    <div class="product-title">InFin-Premium</div>
-    <div class="product-details">
-      Цель: Преумножение средств<br>
-      Срок: 24 месяца<br>
-      Доход: 149.82 USD<br>
-      Мин. вклад: 1 000 USD<br>
-      Ставка: 7.5%<br>
-      Выплата процентов: ежемесячно<br>
-      Частичное списание: Да<br>
-      Досрочное закрытие: Да<br>
-      Доп. взнос: Да
+  <nav>
+    <h2 onclick="showSection('home')">Главная</h2>
+    <h2 onclick="toggleSubmenu('productMenu')">Продукт</h2>
+    <div id="productMenu" class="submenu">
+      <h2 onclick="showSection('cards')">Карты</h2>
+      <h2 onclick="showSection('deposits')">Вклады</h2>
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">
-      Подробнее
-      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
-    </button>
-  </div>
-
-  <div class="product-card">
-    <div class="product-title">Infin Nastarin</div>
-    <div class="product-details">
-      Срок: 24 месяца<br>
-      Доход: 439 999.95 UZS<br>
-      Мин. вклад: 1 000 000 UZS<br>
-      Ставка: 22.0%<br>
-      Выплата процентов: ежемесячно<br>
-      Частичное списание: Да<br>
-      Досрочное закрытие: Да<br>
-      Доп. взнос: Да
+    <h2 onclick="toggleSubmenu('scriptsMenu')">Скрипты</h2>
+    <div id="scriptsMenu" class="submenu">
+      <h2 onclick="showSection('greeting')">Приветствие</h2>
+      <h2 onclick="showSection('objections')">Возражения</h2>
+      <h2 onclick="showSection('tg')">Telegram</h2>
     </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">
-      Подробнее
-      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
-    </button>
-  </div>
+  </nav>
 
-  <div class="product-card">
-    <div class="product-title">InFin Ishonchli</div>
-    <div class="product-details">
-      Срок: 24 месяца<br>
-      Доход: 129.95 USD<br>
-      Мин. вклад: 1 000 USD<br>
-      Ставка: 6.5%<br>
-      Выплата процентов: ежемесячно<br>
-      Частичное списание: Да<br>
-      Досрочное закрытие: Да<br>
-      Доп. взнос: Да
-    </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">
-      Подробнее
-      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
-    </button>
-  </div>
+  <main>
+    <section id="home" class="content-block">
+      <h3>Контактная информация</h3>
+      <p>ИнфинБанк. Все права защищены.</p>
+    </section>
 
-  <div class="product-card">
-    <div class="product-title">InFinga 15 yil</div>
-    <div class="product-details">
-      Срок: 18 месяцев<br>
-      Доход: 41.21 USD<br>
-      Мин. вклад: 500 USD<br>
-      Ставка: 5.5%<br>
-      Выплата процентов: ежемесячно<br>
-      Частичное списание: Да<br>
-      Досрочное закрытие: Да<br>
-      Доп. взнос: Да
-    </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">
-      Подробнее
-      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
-    </button>
-  </div>
+    <section id="cards" class="content-block" style="display:none;">
+      <h3>Карта №1 — Карта рассрочки</h3>
+      <p>Тип: карта рассрочки<br>
+         Лимит: до 100 000 000 UZS<br>
+         Погашение: 12 месяцев<br>
+         Срок: 5 лет<br>
+         Доставка и выпуск: бесплатно<br>
+         Наценка: треть от суммы покупки</p>
+      <h3>Карта №2 — Кредитная карта с грейс-периодом</h3>
+      <p>Тип: возобновляемый кредит<br>
+         Лимит: до 50 000 000 UZS<br>
+         Грейс-период: до 50 дней<br>
+         Ставка: от 0,07% в день<br>
+         Срок: 5 лет<br>
+         Доставка: бесплатно<br>
+         Выпуск: 50 000 UZS</p>
+    </section>
 
-  <div class="product-card">
-    <div class="product-title">Infin Sevimli</div>
-    <div class="product-details">
-      Срок: 24 месяца<br>
-      Доход: 8.88 USD<br>
-      Мин. вклад: 100 USD<br>
-      Ставка: 4.5%<br>
-      Выплата процентов: ежемесячно<br>
-      Частичное списание: Да<br>
-      Досрочное закрытие: Да<br>
-      Доп. взнос: Да
-    </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">
-      Подробнее
-      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
-    </button>
-  </div>
+    <section id="deposits" class="content-block" style="display:none;">
+      <h3>Вклады InfinBank</h3>
+      <pre>
+InFin-Premium
+Срок: 24 мес | Ставка: 7.5% | Мин. вклад: 1000 USD | Доход: 149.82 USD
 
-  <div class="product-card">
-    <div class="product-title">InFin Barqaror</div>
-    <div class="product-details">
-      Срок: 18 месяцев<br>
-      Доход: 44.91 USD<br>
-      Мин. вклад: 500 USD<br>
-      Ставка: 6.0%<br>
-      Выплата процентов: ежемесячно<br>
-      Частичное списание: Нет<br>
-      Досрочное закрытие: Да<br>
-      Доп. взнос: Нет
-    </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">
-      Подробнее
-      <svg viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
-    </button>
-  </div>
+Infin Nastarin
+Срок: 24 мес | Ставка: 22% | Мин. вклад: 1 000 000 UZS | Доход: 439 999.95 UZS
 
-  <!-- КАРТЫ -->
+InFin Ishonchli
+Срок: 24 мес | Ставка: 6.5% | Мин. вклад: 1000 USD | Доход: 129.95 USD
 
-  <div class="product-card">
-    <div class="product-title">Карта №1 — Рассрочка</div>
-    <div class="product-details">
-      Тип: карта рассрочки<br>
-      Максимальный лимит: до 100 000 000 UZS<br>
-      Штраф за просрочку: отсутствует<br>
-      Где использовать: список партнёров Банка<br>
-      Период погашения: 12 месяцев<br>
-      Срок действия карты: 5 лет<br>
-      Время рассмотрения заявки: от 5 минут<br>
-      Доставка карты: бесплатно<br>
-      Выпуск карты: бесплатно<br>
-      Наценка: треть от суммы покупки
-    </div>
-    <button class="toggle-button" onclick="toggleDetails(this)">
-      Подробнее
-      <svg viewBox="0
+InFinga 15 yil
+Срок: 18 мес | Ставка: 5.5% | Мин. вклад: 500 USD | Доход: 41.21 USD
+
+Infin Sevimli
+Срок: 24 мес | Ставка: 4.5% | Мин. вклад: 100 USD | Доход: 8.88 USD
+
+InFin Barqaror
+Срок: 18 мес | Ставка: 6% | Мин. вклад: 500 USD | Доход: 44.91 USD
+      </pre>
+    </section>
+
+    <section id="greeting" class="content-block" style="display:none;">
+      <h3>Приветствие</h3>
+      <pre>
+Русский:
+"Доброе утро/день/вечер, (имя клиента). Меня зовут (имя сотрудника)..."
+
+Узбекский:
+"Xayrli tong/kун/kech, (mijozning ismi)..."
+
+Каракалпакский:
+"Қайырлы таң/күн/кеш, (клиенттің аты)..."
+      </pre>
+    </section>
+
+    <section id="objections" class="content-block" style="display:none;">
+      <h3>Возражения и претензии</h3>
+      <pre>
+Русский:
+"(Имя клиента), для этого я должен(а) задать Вам пару вопросов для аутентификации..."
+
+Узбекский:
+"(Mijozning ismi), buni amalga oshirish uchun men sizga autentifikatsiya protsedurasini..."
+
+Каракалпакский:
+"(Клиенттің аты), бұны жүзеге асыру үшін мен сізге аутентификация процедурасын..."
+      </pre>
+    </section>
+
+    <section id="tg" class="content-block" style="display:none;">
+      <h3>Telegram-скрипты</h3>
+      <p>Здесь будет информация о работе с Telegram</p>
+    </section>
+  </main>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('main section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function toggleSubmenu(id) {
+      document.getElementById(id).classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
