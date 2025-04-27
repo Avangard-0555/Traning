@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru-en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Портал InfinBank</title>
-  <style>
-    <body>
-  <!-- Кнопка гамбургера -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Кнопка "гамбургер" -->
   <button id="toggleSidebar">☰</button>
 
   <!-- Боковая панель -->
@@ -36,35 +38,51 @@
     <section id="cards" class="content-block" style="display:none;">
       <h3>Карта №1 — Карта рассрочки</h3>
       <p>Тип: InfinNasiya рассрочка<br>
-        Лимит: до 100 000 000 UZS<br>
-        Погашение: 12 месяцев<br>
-        Срок действия карты: 5 лет<br>
-        Время рассмотрения: 5 минут<br>
-        Доставка и выпуск: бесплатно<br>
-        Наценка: треть от суммы покупки</p>
+         Лимит: до 100 000 000 UZS<br>
+         Погашение: 12 месяцев<br>
+         Срок действия карты: 5 лет<br>
+         Время рассмотрения: 5 минут<br>
+         Доставка и выпуск: бесплатно<br>
+         Наценка: треть от суммы покупки</p>
       <h3>Карта №2 — InfinBlack</h3>
       <p>Тип: возобновляемый кредит<br>
-        Лимит: до 50 000 000 UZS<br>
-        Беспроцентный период: до 50 дней<br>
-        Ставка: от 0,07% в день<br>
-        Срок: 5 лет<br>
-        Доставка: бесплатно<br>
-        Выпуск: 50 000 UZS</p>
+         Лимит: до 50 000 000 UZS<br>
+         Беспроцентный период: до 50 дней<br>
+         Ставка: от 0,07% в день<br>
+         Срок: 5 лет<br>
+         Доставка: бесплатно<br>
+         Выпуск: 50 000 UZS</p>
     </section>
 
     <section id="deposits" class="content-block" style="display:none;">
       <h3>Вклады InfinBank</h3>
-      <pre>... (оставь как есть)</pre>
+      <pre>
+InFin-Premium
+Срок: 24 мес
+Ставка: 7.5%
+Мин. вклад: 1000 USD
+Доход: 149.82 USD
+Выплата процентов: ежемесячно
+Частичное списание: Да
+Досрочное закрытие: Да
+Доп. взнос: Да
+      </pre>
     </section>
 
     <section id="greeting" class="content-block" style="display:none;">
       <h3>Приветствие</h3>
-      <pre>... (оставь как есть)</pre>
+      <pre>
+"Доброе утро/день/вечер, (имя клиента).
+Меня зовут (имя сотрудника). Я звоню Вам из контакт-центра ИнфинБанка.
+Вам удобно сейчас разговаривать?"
+      </pre>
     </section>
 
     <section id="objections" class="content-block" style="display:none;">
       <h3>Возражения и претензии</h3>
-      <pre>... (оставь как есть)</pre>
+      <pre>
+"(Имя клиента), для этого я должен(а) задать Вам пару вопросов для аутентификации..."
+      </pre>
     </section>
 
     <section id="tg" class="content-block" style="display:none;">
@@ -83,7 +101,9 @@
     });
 
     function showSection(id) {
-      document.querySelectorAll('main section').forEach(sec => sec.style.display = 'none');
+      document.querySelectorAll('main section').forEach(sec => {
+        sec.style.display = 'none';
+      });
       document.getElementById(id).style.display = 'block';
     }
 
@@ -97,3 +117,4 @@
     }
   </script>
 </body>
+</html>
