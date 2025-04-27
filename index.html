@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Портал InfinBank</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Кнопка "гамбургер" -->
-  <button id="toggleSidebar">☰</button>
-
-  <!-- Боковая панель -->
-  <nav id="sidebar">
-    <h2 onclick="navigateAndClose('home')">Главная</h2>
-    <h2 onclick="toggleSubmenu('productMenu')">Продукт</h2>
-    <div id="productMenu" class="submenu">
-      <h2 onclick="navigateAndClose('cards')">Карты</h2>
-      <h2 onclick="navigateAndClose('deposits')">Вклады</h2>
-      <h2 onclick="navigateAndClose('comision')">Тариф комиссии</h2>
+  <div class="sidebar">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <div id="menu" class="menu">
+      <button onclick="showSection('home')">Главная</button>
+      <button onclick="toggleSubmenu('productMenu')">Продукт</button>
+      <div id="productMenu" class="submenu">
+        <button onclick="showSection('cards')">Карты</button>
+        <button onclick="showSection('deposits')">Вклады</button>
+        <button onclick="showSection('comision')">Тариф комиссии</button>
+      </div>
+      <button onclick="toggleSubmenu('scriptsMenu')">Скрипты</button>
+      <div id="scriptsMenu" class="submenu">
+        <button onclick="showSection('greeting')">Приветствие</button>
+        <button onclick="showSection('objections')">Возражения</button>
+        <button onclick="showSection('tg')">Telegram</button>
+      </div>
     </div>
-    <h2 onclick="toggleSubmenu('scriptsMenu')">Скрипты</h2>
-    <div id="scriptsMenu" class="submenu">
-      <h2 onclick="navigateAndClose('greeting')">Приветствие</h2>
-      <h2 onclick="navigateAndClose('objections')">Возражения</h2>
-      <h2 onclick="navigateAndClose('tg')">Telegram</h2>
-    </div>
-  </nav>
+  </div>
 
-  <!-- Контент -->
   <main>
     <section id="home" class="content-block">
       <h3>Контактная информация</h3>
@@ -44,12 +41,12 @@
          Время рассмотрения: 5 минут<br>
          Доставка и выпуск: бесплатно<br>
          Наценка: треть от суммы покупки</p>
-      <h3>Карта №2 — InfinBlack</h3>
+      <h3>Карта №2 — Кредитная карта InfinBlack с грейс-периодом</h3>
       <p>Тип: возобновляемый кредит<br>
          Лимит: до 50 000 000 UZS<br>
-         Беспроцентный период: до 50 дней<br>
-         Ставка: от 0,07% в день<br>
-         Срок: 5 лет<br>
+         Возобновляемый беспроцентный период: до 50 дней<br>
+         Годовая процентная ставка: от 0,07% в день<br>
+         Срок действия карты: 5 лет<br>
          Доставка: бесплатно<br>
          Выпуск: 50 000 UZS</p>
     </section>
@@ -62,10 +59,60 @@ InFin-Premium
 Ставка: 7.5%
 Мин. вклад: 1000 USD
 Доход: 149.82 USD
+Выплата процентов ежемесячно
+Частичное списание: Да
+Досрочное закрытие: Да
+Доп. взнос: Да
+
+Infin Nastarin
+Срок: 24 мес
+Ставка: 22%
+Мин. вклад: 1 000 000 UZS
+Доход: 439 999.95 UZS
 Выплата процентов: ежемесячно
 Частичное списание: Да
 Досрочное закрытие: Да
 Доп. взнос: Да
+
+InFin Ishonchli
+Срок: 24 мес
+Ставка: 6.5%
+Мин. вклад: 1000 USD
+Доход: 129.95 USD
+Выплата процентов: ежемесячно
+Частичное списание: Да
+Досрочное закрытие: Да
+Доп. взнос: Да
+
+InFinga 15 yil
+Срок: 18 мес
+Ставка: 5.5%
+Мин. вклад: 500 USD
+Доход: 41.21 USD
+Выплата процентов: ежемесячно
+Частичное списание: Да
+Досрочное закрытие: Да
+Доп. взнос: Да
+
+Infin Sevimli
+Срок: 24 мес
+Ставка: 4.5%
+Мин. вклад: 100 USD
+Доход: 8.88 USD
+Выплата процентов: ежемесячно
+Частичное списание: Да
+Досрочное закрытие: Да
+Доп. взнос: Да
+
+InFin Barqaror
+Срок: 18 мес
+Ставка: 6%
+Мин. вклад: 500 USD
+Доход: 44.91 USD
+Выплата процентов: ежемесячно
+Частичное списание: Нет
+Досрочное закрытие: Да
+Доп. взнос: Нет
       </pre>
     </section>
 
@@ -75,13 +122,26 @@ InFin-Premium
 "Доброе утро/день/вечер, (имя клиента).
 Меня зовут (имя сотрудника). Я звоню Вам из контакт-центра ИнфинБанка.
 Вам удобно сейчас разговаривать?"
+
+Узбекский:
+
+"Xayrli tong/kун/kech, (mijozning ismi). Mening ismim (xodimning ismi).
+Men InfinBankning aloqamarqazidan sizga qo'ng'iroq qilmoqdaman.
+Hozir suhbatlashish uchun qulaymi?"
       </pre>
     </section>
 
     <section id="objections" class="content-block" style="display:none;">
       <h3>Возражения и претензии</h3>
       <pre>
+Русский:
 "(Имя клиента), для этого я должен(а) задать Вам пару вопросов для аутентификации..."
+
+Узбекский:
+"(Mijozning ismi), buni amalga oshirish uchun men sizga autentifikatsiya protsedurasini..."
+
+Каракалпакский:
+"(Клиенттің аты), бұны жүзеге асыру үшін мен сізге аутентификация процедурасын..."
       </pre>
     </section>
 
@@ -91,30 +151,7 @@ InFin-Premium
     </section>
   </main>
 
-  <!-- JavaScript -->
   <script>
-    const sidebar = document.getElementById('sidebar');
-    const toggleBtn = document.getElementById('toggleSidebar');
-
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
-
-    function showSection(id) {
-      document.querySelectorAll('main section').forEach(sec => {
-        sec.style.display = 'none';
-      });
-      document.getElementById(id).style.display = 'block';
-    }
-
-    function toggleSubmenu(id) {
-      document.getElementById(id).classList.toggle('active');
-    }
-
-    function navigateAndClose(id) {
-      showSection(id);
-      sidebar.classList.remove('active');
-    }
-  </script>
-</body>
-</html>
+    function showSection
+::contentReference[oaicite:2]{index=2}
+ 
