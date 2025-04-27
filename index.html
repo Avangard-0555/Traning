@@ -5,94 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Портал InfinBank</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-
-    /* Кнопка гамбургер */
-    #toggleSidebar {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      z-index: 1101;
-      background-color: #2c3e50;
-      color: white;
-      border: none;
-      padding: 10px 12px;
-      font-size: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    /* Сайдбар */
-    nav {
-      position: fixed;
-      top: 0;
-      left: -220px;
-      width: 200px;
-      height: 100vh;
-      background-color: #2c3e50;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-      transition: left 0.3s ease;
-      z-index: 1000;
-    }
-
-    nav.active {
-      left: 0;
-    }
-
-    nav h2 {
-      font-size: 18px;
-      margin: 10px 0;
-      cursor: pointer;
-    }
-
-    .submenu {
-      margin-left: 10px;
-      display: none;
-      flex-direction: column;
-    }
-
-    .submenu.active {
-      display: flex;
-    }
-
-    nav h2:hover {
-      color: #18bc9c;
-    }
-
-    main {
-      padding: 20px;
-      margin-left: 0;
-      transition: margin-left 0.3s ease;
-    }
-
-    .content-block {
-      margin-bottom: 30px;
-    }
-
-    h3 {
-      color: #2c3e50;
-    }
-
-    pre {
-      background: #ecf0f1;
-      padding: 10px;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Гамбургер-кнопка -->
+    <body>
+  <!-- Кнопка гамбургера -->
   <button id="toggleSidebar">☰</button>
 
-  <!-- Сайдбар -->
+  <!-- Боковая панель -->
   <nav id="sidebar">
     <h2 onclick="navigateAndClose('home')">Главная</h2>
     <h2 onclick="toggleSubmenu('productMenu')">Продукт</h2>
@@ -113,74 +30,41 @@
   <main>
     <section id="home" class="content-block">
       <h3>Контактная информация</h3>
-      <p>ИнфинБанк. Все права защищены.+998941234567</p>
+      <p>ИнфинБанк. Все права защищены. +998941234567</p>
     </section>
 
     <section id="cards" class="content-block" style="display:none;">
       <h3>Карта №1 — Карта рассрочки</h3>
       <p>Тип: InfinNasiya рассрочка<br>
-         Лимит: до 100 000 000 UZS<br>
-         Погашение: 12 месяцев<br>
-         Срок действия карты: 5 лет<br>
-         Время расмотрения: 5 минут<br>
-         Доставка и выпуск: бесплатно<br>
-         Наценка: треть от суммы покупки</p>
-      <h3>Карта №2 — Кредитная карта InfinBlack с грейс-периодом</h3>
+        Лимит: до 100 000 000 UZS<br>
+        Погашение: 12 месяцев<br>
+        Срок действия карты: 5 лет<br>
+        Время рассмотрения: 5 минут<br>
+        Доставка и выпуск: бесплатно<br>
+        Наценка: треть от суммы покупки</p>
+      <h3>Карта №2 — InfinBlack</h3>
       <p>Тип: возобновляемый кредит<br>
-         Лимит: до 50 000 000 UZS<br>
-         Возобновляемый беспроцентный период: до 50 дней<br>
-         Годовая процентная ставка: от 0,07% в день<br>
-         Срок действия карты: 5 лет<br>
-         Доставка: бесплатно<br>
-         Выпуск: 50 000 UZS</p>
+        Лимит: до 50 000 000 UZS<br>
+        Беспроцентный период: до 50 дней<br>
+        Ставка: от 0,07% в день<br>
+        Срок: 5 лет<br>
+        Доставка: бесплатно<br>
+        Выпуск: 50 000 UZS</p>
     </section>
 
     <section id="deposits" class="content-block" style="display:none;">
       <h3>Вклады InfinBank</h3>
-      <pre>InFin-Premium
-Срок: 24 мес 
-Ставка: 7.5% 
-Мин. вклад: 1000 USD
-Доход: 149.82 USD
-Выплата процентов ежемесячно
-Частичное списание: Да
-Досрочное закрытие: Да 
-Доп. взнос: Да
-
-Infin Nastarin
-Срок: 24 мес
-Ставка: 22%
-Мин. вклад: 1 000 000 UZS
-Доход: 439 999.95 UZS
-Выплата процентов: ежемесячно  
-Частичное списание: Да
-Досрочное закрытие: Да
-Доп. взнос: Да
-
-InFin Ishonchli
-Срок: 24 мес
-Ставка: 6.5%
-Мин. вклад: 1000 USD
-Доход: 129.95 USD
-Выплата процентов: ежемесячно
-Частичное списание: Да
-Досрочное закрытие: Да
-Доп. взнос: Да
-</pre>
+      <pre>... (оставь как есть)</pre>
     </section>
 
     <section id="greeting" class="content-block" style="display:none;">
       <h3>Приветствие</h3>
-      <pre>"Доброе утро/день/вечер, (имя клиента)...
-      ...подскажите, как я могу к Вам обращаться?"</pre>
+      <pre>... (оставь как есть)</pre>
     </section>
 
     <section id="objections" class="content-block" style="display:none;">
       <h3>Возражения и претензии</h3>
-      <pre>Русский: "(Имя клиента)..."
-Узбекский: "(Mijozning ismi)..."
-Каракалпакский: "(Клиенттің аты)..."
-      </pre>
+      <pre>... (оставь как есть)</pre>
     </section>
 
     <section id="tg" class="content-block" style="display:none;">
@@ -189,7 +73,7 @@ InFin Ishonchli
     </section>
   </main>
 
-  <!-- JS -->
+  <!-- JavaScript -->
   <script>
     const sidebar = document.getElementById('sidebar');
     const toggleBtn = document.getElementById('toggleSidebar');
@@ -213,4 +97,3 @@ InFin Ishonchli
     }
   </script>
 </body>
-</html>
