@@ -57,8 +57,19 @@
 <body>
   <nav>
     <h2 onclick="showSection('home')">Главная</h2>
+    <script>
+  const toggleBtn = document.getElementById('toggleSidebar');
+  const sidebar = document.querySelector('.sidebar');
+  const mainContent = document.getElementById('mainContent');
+
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    mainContent.classList.toggle('shifted');
+  });
+</script>
+
     <h2 onclick="toggleSubmenu('productMenu')">Продукт</h2>
-    <div id="productMenu" class="submenu">
+    <div id="productMenu" class="sidebar">
       <h2 onclick="showSection('cards')">Карты</h2>
       <h2 onclick="showSection('deposits')">Вклады</h2>
       <h2 onclick="showSection('comision')">Тариф комиссии</h2>
