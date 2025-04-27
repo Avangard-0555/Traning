@@ -4,12 +4,12 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Кнопка гамбургера */
+/* Кнопка-гамбургер */
 #toggleSidebar {
   position: fixed;
   top: 15px;
   left: 15px;
-  z-index: 1101;
+  z-index: 1001;
   background-color: #2c3e50;
   color: white;
   border: none;
@@ -20,7 +20,7 @@ body {
 }
 
 /* Боковая панель */
-nav {
+#sidebar {
   position: fixed;
   top: 0;
   left: -220px;
@@ -32,20 +32,20 @@ nav {
   flex-direction: column;
   padding: 10px;
   transition: left 0.3s ease;
-  z-index: 1100;
+  z-index: 1000;
 }
 
-nav.active {
+#sidebar.active {
   left: 0;
 }
 
-nav h2 {
+#sidebar h2 {
   font-size: 18px;
   margin: 10px 0;
   cursor: pointer;
 }
 
-nav h2:hover {
+#sidebar h2:hover {
   color: #18bc9c;
 }
 
@@ -62,7 +62,7 @@ nav h2:hover {
 /* Основной контент */
 main {
   padding: 20px;
-  transition: margin-left 0.3s ease;
+  margin-left: 20px;
 }
 
 .content-block {
