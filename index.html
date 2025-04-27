@@ -8,45 +8,78 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      display: flex;
+      background-color: #f4f4f4;
     }
-    nav {
-      width: 200px;
+
+    /* Кнопка гамбургер */
+    #toggleSidebar {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1101;
       background-color: #2c3e50;
+      color: white;
+      border: none;
+      padding: 10px 12px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    /* Сайдбар */
+    nav {
+      position: fixed;
+      top: 0;
+      left: -220px;
+      width: 200px;
       height: 100vh;
+      background-color: #2c3e50;
       color: white;
       display: flex;
       flex-direction: column;
       padding: 10px;
-      position: fixed;
+      transition: left 0.3s ease;
+      z-index: 1000;
     }
+
+    nav.active {
+      left: 0;
+    }
+
     nav h2 {
       font-size: 18px;
       margin: 10px 0;
       cursor: pointer;
     }
+
     .submenu {
       margin-left: 10px;
       display: none;
       flex-direction: column;
     }
+
     .submenu.active {
       display: flex;
     }
+
     nav h2:hover {
       color: #18bc9c;
     }
+
     main {
-      margin-left: 220px;
       padding: 20px;
-      flex: 1;
+      margin-left: 0;
+      transition: margin-left 0.3s ease;
     }
+
     .content-block {
       margin-bottom: 30px;
     }
+
     h3 {
       color: #2c3e50;
     }
+
     pre {
       background: #ecf0f1;
       padding: 10px;
@@ -55,34 +88,28 @@
   </style>
 </head>
 <body>
-  <nav>
-    <h2 onclick="showSection('home')">Главная</h2>
-    <script>
-  const toggleBtn = document.getElementById('toggleSidebar');
-  const sidebar = document.querySelector('.sidebar');
-  const mainContent = document.getElementById('mainContent');
 
-  toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-    mainContent.classList.toggle('shifted');
-  });
-</script>
+  <!-- Гамбургер-кнопка -->
+  <button id="toggleSidebar">☰</button>
 
+  <!-- Сайдбар -->
+  <nav id="sidebar">
+    <h2 onclick="navigateAndClose('home')">Главная</h2>
     <h2 onclick="toggleSubmenu('productMenu')">Продукт</h2>
-    <div id="productMenu" class="sidebar">
-      <h2 onclick="showSection('cards')">Карты</h2>
-      <h2 onclick="showSection('deposits')">Вклады</h2>
-      <h2 onclick="showSection('comision')">Тариф комиссии</h2>
+    <div id="productMenu" class="submenu">
+      <h2 onclick="navigateAndClose('cards')">Карты</h2>
+      <h2 onclick="navigateAndClose('deposits')">Вклады</h2>
+      <h2 onclick="navigateAndClose('comision')">Тариф комиссии</h2>
     </div>
     <h2 onclick="toggleSubmenu('scriptsMenu')">Скрипты</h2>
     <div id="scriptsMenu" class="submenu">
-      <h2 onclick="showSection('greeting')">Приветствие</h2>
-      <h2 onclick="showSection('objections')">Возражения</h2>
-      <h2 onclick="showSection('tg')">Telegram</h2>
-      
+      <h2 onclick="navigateAndClose('greeting')">Приветствие</h2>
+      <h2 onclick="navigateAndClose('objections')">Возражения</h2>
+      <h2 onclick="navigateAndClose('tg')">Telegram</h2>
     </div>
   </nav>
 
+  <!-- Контент -->
   <main>
     <section id="home" class="content-block">
       <h3>Контактная информация</h3>
@@ -110,138 +137,49 @@
 
     <section id="deposits" class="content-block" style="display:none;">
       <h3>Вклады InfinBank</h3>
-      <pre>
-InFin-Premium
-Срок: 24 мес <br>
-Ставка: 7.5% <br>
-Мин. вклад: 1000 USD<br>
-Доход: 149.82 USD<br>
-Выплата процентов ежемесячно<br>
-Частичное списание: Да <br >
-Досрочное закрытие: Да <br> 
-Доп. взнос: Да<br>
+      <pre>InFin-Premium
+Срок: 24 мес 
+Ставка: 7.5% 
+Мин. вклад: 1000 USD
+Доход: 149.82 USD
+Выплата процентов ежемесячно
+Частичное списание: Да
+Досрочное закрытие: Да 
+Доп. взнос: Да
 
+Infin Nastarin
+Срок: 24 мес
+Ставка: 22%
+Мин. вклад: 1 000 000 UZS
+Доход: 439 999.95 UZS
+Выплата процентов: ежемесячно  
+Частичное списание: Да
+Досрочное закрытие: Да
+Доп. взнос: Да
 
-<pre>        
-Infin Nastarin<br>
-Срок: 24 мес<br>
-Ставка: 22%<br>
-Мин. вклад: 1 000 000 UZS<br> 
-Доход: 439 999.95 UZS<br>
-Выплата процентов: ежемесячно  Частичное списание: Да<br>  
-Досрочное закрытие: Да<br>  
-Доп. взнос: Да<br>  
-
-  
-
-InFin Ishonchli<br>
-Срок: 24 мес<br>
-Ставка: 6.5% <br>
-Мин. вклад: 1000 USD <br>
-Доход: 129.95 USD<br>
-Выплата процентов: ежемесячно<br>
-Частичное списание: Да  <br>
-Досрочное закрытие: Да  <br>
-Доп. взнос: Да <br>
-
-InFinga 15 yil<br>
-Срок: 18 мес <br>
-Ставка: 5.5% <br>
-Мин. вклад: 500 USD <br>
-Доход: 41.21 USD<br>
-Выплата процентов: ежемесячно<br>
-Частичное списание: Да  <br>
-Досрочное закрытие: Да<br> 
-Доп. взнос: Да  <br>
-
-
-Infin Sevimli<br>
-Срок: 24 мес <br>
-Ставка: 4.5% <br>
-Мин. вклад: 100 USD<br> 
-Доход: 8.88 USD<br>
-Выплата процентов: ежемесячно<br>  
-Частичное списание: Да  <br>
-Досрочное закрытие: Да<br>  
-Доп. взнос: Да  <br>
-
-
-InFin Barqaror<br>
-Срок: 18 мес <br>
-Ставка: 6% <br>
-Мин. вклад: 500 USD <br>
-Доход: 44.91 USD<br>
-Выплата процентов: ежемесячно<br>  
-Частичное списание: Нет  <br>
-Досрочное закрытие: Да  <br>
-Доп. взнос: Нет<br>
-
-
-
-  
-      </pre>
+InFin Ishonchli
+Срок: 24 мес
+Ставка: 6.5%
+Мин. вклад: 1000 USD
+Доход: 129.95 USD
+Выплата процентов: ежемесячно
+Частичное списание: Да
+Досрочное закрытие: Да
+Доп. взнос: Да
+</pre>
     </section>
 
     <section id="greeting" class="content-block" style="display:none;">
       <h3>Приветствие</h3>
-      <pre>
-"Доброе утро/день/вечер, (имя клиента).<br> 
-Меня зовут (имя сотрудника). Я звоню Вам из контакт-центра ИнфинБанка.<br>
-Вам удобно сейчас разговаривать?"<br>
-
-Узбекский:<br>
-
-"Xayrli tong/kун/kech, (mijozning ismi). Mening ismim (xodimning ismi).<br>
-Men InfinBankning aloqamarqazidan sizga qo'ng'iroq qilmoqdaman.<br>
-Hozir suhbatlashish uchun qulaymi?"<br>
-        
-2. Клиент хочет получить информацию о своем счете.<br>
-
-        Русский:<br>
-
-"(Имя клиента), для этого я должен(а) задать Вам пару вопросов для проведения процедуры аутентификации<br>
-        (далее проводится процедура аутентификации согласно инструкции)."<br>
-
-Узбекский:<br>
-
-"(Mijozning ismi), buni amalga oshirish uchun men sizga autentifikatsiya protsedurasini o'tkazish uchun bir necha savollar berishim kerak<br>
-        (keyinchalik autentifikatsiya protsedurasi ko'rsatmalarga binoan amalga oshiriladi)."<br>
-
-
-  3.  Клиент хочет получить услуги банка (блокировка карты/сброс пин-кода).<br>
-
-        Русский:<br>
-
-"Добрый день! Спасибо, что связались с нами. Меня зовут [имя оператора], как я могу к Вам обращаться?<br>
- Здравствуйте, меня зовут [имя оператора], я звоню от компании/ я специалист компании [название компании]<br>. 
-        От Вас поступила заявка, уточните пожалуйста, какие у Вас вопросы?/чем могу Вам помочь? (ждем ответ).<br>
-        Подскажите, как я могу к Вам обращаться?»<br>
-
-
-Узбекский:<br>
-        "Xayrli kun! Biz bilan bog'langaningiz uchun rahmat. Mening ismim [operator nomi], sizga qanday murojaat qilishim mumkin?<br>
-
-"(Mijozning ismi), buni amalga oshirish uchun men sizga autentifikatsiya protsedurasini o'tkazish uchun bir necha savollar berishim kerak<br>
-        (keyinchalik autentifikatsiya protsedurasi ko'rsatmalarga binoan amalga oshiriladi)."<br>
-
-Salom, mening ismim [operator nomi], men kompaniya nomidan qo'ng'iroq qilyapman/ men kompaniyaning mutaxassisiman [kompaniya nomi]<br>
-        . Sizdan ariza oldik. Iltimos, qanday savollaringiz borligini tushuntiring?/Sizga qanday yordam bera olaman? (javob kutmoqda).<br>
-        "Iltimos, ayting-chi, siz bilan qanday bog'lanishim mumkin?"<br>
-
-      </pre>
+      <pre>"Доброе утро/день/вечер, (имя клиента)...
+      ...подскажите, как я могу к Вам обращаться?"</pre>
     </section>
 
     <section id="objections" class="content-block" style="display:none;">
       <h3>Возражения и претензии</h3>
-      <pre>
-Русский:
-"(Имя клиента), для этого я должен(а) задать Вам пару вопросов для аутентификации..."
-
-Узбекский:
-"(Mijozning ismi), buni amalga oshirish uchun men sizga autentifikatsiya protsedurasini..."
-
-Каракалпакский:
-"(Клиенттің аты), бұны жүзеге асыру үшін мен сізге аутентификация процедурасын..."
+      <pre>Русский: "(Имя клиента)..."
+Узбекский: "(Mijozning ismi)..."
+Каракалпакский: "(Клиенттің аты)..."
       </pre>
     </section>
 
@@ -251,7 +189,15 @@ Salom, mening ismim [operator nomi], men kompaniya nomidan qo'ng'iroq qilyapman/
     </section>
   </main>
 
+  <!-- JS -->
   <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleSidebar');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+
     function showSection(id) {
       document.querySelectorAll('main section').forEach(sec => sec.style.display = 'none');
       document.getElementById(id).style.display = 'block';
@@ -259,6 +205,11 @@ Salom, mening ismim [operator nomi], men kompaniya nomidan qo'ng'iroq qilyapman/
 
     function toggleSubmenu(id) {
       document.getElementById(id).classList.toggle('active');
+    }
+
+    function navigateAndClose(id) {
+      showSection(id);
+      sidebar.classList.remove('active');
     }
   </script>
 </body>
