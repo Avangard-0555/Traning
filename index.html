@@ -110,7 +110,7 @@ Hozir suhbatlashish uchun qulaymi?"<br>
     function toggleSubmenu(menuId) {
       let menu = document.getElementById(menuId);
       if (menu) {
-        menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        menu.classList.toggle ('active');
       }
     }
   </script>
