@@ -8,13 +8,41 @@ body {
 .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -200px; /*скрыта за экраном */
     width: 200px;
     height: 100%;
     background-color: #333;
     color: white;
     padding-top: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
 }
+
+sidebar.active {
+    left: 0; /*показываем*/
+}
+#mainContent. {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    }
+#mainContent.shifted{
+    margin-left: 220px;
+}
+#toggleSidebar {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
 
 .sidebar button {
     width: 100%;
